@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Van Ingen Forages — Forage d'eau &amp; Géothermie depuis 1989</title>
+<meta name="description" content="SAS Van Ingen Forages, spécialiste du forage d'eau et de la géothermie à Bossay-sur-Claise (37). Particuliers, agriculteurs, collectivités. Certifié Qualiforage.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--primary:#5C6B1F;
+--primary-dark:#1A2A0A;
+--primary-light:#7B8F2E;
+--accent:#FEFB00;
+--accent-soft:#F5E84C;
+--white:#FFFFFF;
+--gray:#6B7280;
+--light-bg:#F9FAF4;
+}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#1A2A0A;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--primary);text-decoration:none}
+a:hover{color:var(--primary-light)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(26,42,10,0.95);backdrop-filter:blur(8px);z-index:100;padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-logo{height:50px;width:auto}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--white);font-size:0.95rem;font-weight:500;transition:color 0.3s}
+.nav-links a:hover{color:var(--accent)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--white);margin:5px 0;transition:0.3s}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--primary-dark)}
+.hero-bg{position:absolute;inset:0;background:url('img/forage_agricole_eau.jpg') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,42,10,0.88) 0%,rgba(92,107,31,0.7) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem;max-width:800px}
+.hero-logo{max-width:240px;margin:0 auto 2rem}
+.hero-tagline{font-size:1.1rem;color:var(--accent);text-transform:uppercase;letter-spacing:3px;margin-bottom:1rem}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);color:var(--white);font-weight:700;line-height:1.2;margin-bottom:1.5rem}
+.hero p{font-size:1.15rem;color:rgba(255,255,255,0.85);margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}
+.btn{display:inline-block;padding:14px 36px;border-radius:4px;font-weight:600;font-size:1rem;transition:all 0.3s;cursor:pointer;border:none}
+.btn-primary{background:var(--accent);color:var(--primary-dark)}
+.btn-primary:hover{background:var(--accent-soft);transform:translateY(-2px);box-shadow:0 8px 25px rgba(254,251,0,0.25)}
+.btn-outline{border:2px solid var(--white);color:var(--white);background:transparent;margin-left:1rem}
+.btn-outline:hover{background:var(--white);color:var(--primary-dark)}
+
+/* SECTIONS */
+section{padding:5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-title{text-align:center;margin-bottom:3.5rem}
+.section-title h2{font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--primary-dark);margin-bottom:0.75rem}
+.section-title .underline{width:60px;height:3px;background:var(--accent);margin:0 auto 1rem}
+.section-title p{color:var(--gray);font-size:1.05rem;max-width:600px;margin:0 auto}
+
+/* ABOUT */
+.about{background:var(--light-bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-img{border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.1)}
+.about-img img{width:100%;height:400px;object-fit:cover}
+.about-text h3{font-size:1.6rem;color:var(--primary-dark);margin-bottom:1rem}
+.about-text p{color:var(--gray);margin-bottom:1rem}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.stat{text-align:center;padding:1rem;background:var(--white);border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
+.stat-number{font-size:2rem;font-weight:700;color:var(--primary)}
+.stat-label{font-size:0.85rem;color:var(--gray);margin-top:0.25rem}
+
+/* SERVICES */
+.services{background:var(--white)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.service-card{background:var(--light-bg);border-radius:8px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,0.1)}
+.service-card img{width:100%;height:200px;object-fit:cover}
+.service-card-body{padding:1.5rem}
+.service-card h3{font-size:1.2rem;color:var(--primary-dark);margin-bottom:0.75rem}
+.service-card p{font-size:0.95rem;color:var(--gray);line-height:1.7}
+
+/* CERTIFICATIONS */
+.certifications{background:var(--primary-dark);color:var(--white);text-align:center}
+.certifications .section-title h2{color:var(--white)}
+.certifications .section-title p{color:rgba(255,255,255,0.7)}
+.cert-grid{display:flex;justify-content:center;align-items:center;gap:3rem;flex-wrap:wrap}
+.cert-item{display:flex;flex-direction:column;align-items:center;gap:0.75rem}
+.cert-item img{height:80px;width:auto;opacity:0.9}
+.cert-item span{font-size:0.9rem;color:rgba(255,255,255,0.8)}
+
+/* ZONE */
+.zone{background:var(--light-bg)}
+.zone-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.zone-img{text-align:center}
+.zone-img img{max-width:400px;margin:0 auto}
+.zone-list{list-style:none;padding:0}
+.zone-list li{padding:0.6rem 0;border-bottom:1px solid rgba(0,0,0,0.06);color:var(--gray);font-size:1rem;display:flex;align-items:center;gap:0.75rem}
+.zone-list li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* CONTACT */
+.contact{background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-info h3{font-size:1.4rem;color:var(--primary-dark);margin-bottom:1.5rem}
+.contact-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem}
+.contact-icon{width:44px;height:44px;background:var(--light-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon svg{width:20px;height:20px;stroke:var(--primary)}
+.contact-item p{font-size:0.95rem;color:var(--gray)}
+.contact-item strong{color:var(--primary-dark);display:block;margin-bottom:0.25rem}
+.contact-map{border-radius:8px;overflow:hidden;height:100%;min-height:350px}
+.contact-map iframe{width:100%;height:100%;border:0}
+
+/* FOOTER */
+.footer{background:var(--primary-dark);color:rgba(255,255,255,0.7);padding:2.5rem 2rem;text-align:center}
+.footer p{font-size:0.9rem;margin-bottom:0.5rem}
+.footer a{color:var(--accent)}
+
+/* MOBILE */
+@media(max-width:768px){
+.nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:var(--primary-dark);flex-direction:column;padding:1.5rem 2rem;gap:1rem}
+.nav-links.active{display:flex}
+.nav-toggle{display:block}
+.hero h1{font-size:2rem}
+.hero-logo{max-width:180px}
+.about-grid,.contact-grid,.zone-grid{grid-template-columns:1fr}
+.about-stats{grid-template-columns:repeat(2,1fr)}
+.btn-outline{margin-left:0;margin-top:0.75rem}
+.hero .btn{display:block;width:fit-content;margin:0 auto 0.75rem}
+.cert-grid{gap:2rem}
+.zone-img img{max-width:280px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-inner">
+<img src="img/logo.png" alt="Van Ingen Forages" class="nav-logo">
+<button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+<ul class="nav-links">
+<li><a href="#accueil">Accueil</a></li>
+<li><a href="#expertise">L'entreprise</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#zone">Zone d'intervention</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<img src="img/logo.png" alt="Van Ingen Forages" class="hero-logo">
+<div class="hero-tagline">Forage d'eau &amp; Géothermie</div>
+<h1>Spécialiste du forage depuis 1989</h1>
+<p>Particuliers, agriculteurs, industriels et collectivités — Van Ingen Forages vous garantit l'accès à l'eau et à l'énergie du sous-sol en Centre-Val de Loire et régions limitrophes.</p>
+<a href="#contact" class="btn btn-primary">Demander un devis</a>
+<a href="#services" class="btn btn-outline">Nos prestations</a>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="expertise">
+<div class="container">
+<div class="about-grid">
+<div class="about-img">
+<img src="img/equipe_forage.jpg" alt="L'équipe Van Ingen Forages">
+</div>
+<div class="about-text">
+<h3>Plus de 35 ans d'expérience en forage</h3>
+<p>Depuis 1989, la SAS Van Ingen Forages est spécialisée dans la recherche d'eau et le forage pour les particuliers, professionnels, agriculteurs et collectivités. Basés à Bossay-sur-Claise en Indre-et-Loire, nous intervenons sur un large quart centre-ouest de la France.</p>
+<p>Notre savoir-faire couvre l'ensemble du processus : de l'étude hydrogéologique à la réalisation du forage, en passant par l'équipement et la mise en service. Nous garantissons le résultat de nos implantations selon les secteurs géologiques.</p>
+<div class="about-stats">
+<div class="stat">
+<div class="stat-number">1989</div>
+<div class="stat-label">Création de l'entreprise</div>
+</div>
+<div class="stat">
+<div class="stat-number">7</div>
+<div class="stat-label">Régions couvertes</div>
+</div>
+<div class="stat">
+<div class="stat-number">15+</div>
+<div class="stat-label">Collaborateurs</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+<div class="section-title">
+<h2>Nos prestations de forage</h2>
+<div class="underline"></div>
+<p>Des solutions adaptées à chaque besoin en eau et en énergie géothermique</p>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<img src="img/forage_agricole_eau.jpg" alt="Forage agricole">
+<div class="service-card-body">
+<h3>Forage agricole &amp; irrigation</h3>
+<p>Réalisation de forages pour l'irrigation des cultures, l'abreuvement du bétail et les besoins en eau des exploitations agricoles. Dimensionnement adapté à votre consommation.</p>
+</div>
+</div>
+<div class="service-card">
+<img src="img/forage_geothermie.jpg" alt="Forage géothermique">
+<div class="service-card-body">
+<h3>Géothermie</h3>
+<p>Forages géothermiques pour le chauffage et la climatisation de votre habitation ou bâtiment. Une énergie renouvelable et économique, puisée directement dans le sous-sol.</p>
+</div>
+</div>
+<div class="service-card">
+<img src="img/coupe_forage_domestique_small_detaillee_600.jpg" alt="Forage domestique">
+<div class="service-card-body">
+<h3>Eau domestique &amp; arrosage</h3>
+<p>Forages pour l'alimentation en eau de votre maison ou l'arrosage de votre jardin. Eau de source, eau potable — nous recherchons et captons la ressource la plus adaptée.</p>
+</div>
+</div>
+<div class="service-card">
+<img src="img/drilling_layers_professionnel.jpg" alt="Forage professionnel">
+<div class="service-card-body">
+<h3>Forage professionnel &amp; collectivités</h3>
+<p>Captages d'eau pour les collectivités et l'industrie. Piézomètres, forages de reconnaissance et études hydrogéologiques pour sécuriser vos ressources en eau.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certifications">
+<div class="container">
+<div class="section-title">
+<h2>Nos agréments et certifications</h2>
+<div class="underline" style="background:var(--accent)"></div>
+<p>Des labels reconnus qui garantissent la qualité de nos interventions</p>
+</div>
+<div class="cert-grid">
+<div class="cert-item">
+<img src="img/agrements_forages_geoqual_qualiforage_sfeg.jpg" alt="Certifications Van Ingen" style="height:120px;border-radius:6px">
+<span>Qualiforage — SFEG — Géoqual — BRGM — ADEME</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ZONE D'INTERVENTION -->
+<section class="zone" id="zone">
+<div class="container">
+<div class="section-title">
+<h2>Zone d'intervention</h2>
+<div class="underline"></div>
+<p>Nous intervenons dans un large quart centre-ouest de la France</p>
+</div>
+<div class="zone-grid">
+<div class="zone-img">
+<img src="img/carte_regions.png" alt="Carte des régions d'intervention Van Ingen Forages">
+</div>
+<div>
+<ul class="zone-list">
+<li>Centre-Val de Loire (Indre-et-Loire, Loir-et-Cher, Loiret, Indre, Cher, Eure-et-Loir)</li>
+<li>Pays de la Loire (Maine-et-Loire, Deux-Sèvres)</li>
+<li>Poitou-Charentes (Vienne, Charente)</li>
+<li>Bourgogne (Nièvre, Saône-et-Loire)</li>
+<li>Limousin (Creuse, Haute-Vienne)</li>
+<li>Auvergne (Allier, Haute-Loire)</li>
+<li>Déplacements ponctuels sur demande</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container">
+<div class="section-title">
+<h2>Contactez-nous</h2>
+<div class="underline"></div>
+<p>Un projet de forage ? Demandez un devis gratuit et personnalisé</p>
+</div>
+<div class="contact-grid">
+<div class="contact-info">
+<h3>SAS Van Ingen Forages</h3>
+<div class="contact-item">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+</div>
+<div>
+<strong>Adresse</strong>
+<p>Bossay-sur-Claise (37)<br>Indre-et-Loire</p>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+</div>
+<div>
+<strong>Téléphone</strong>
+<p>Appelez-nous pour un devis personnalisé</p>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+</div>
+<div>
+<strong>Email</strong>
+<p><a href="mailto:info@vaningen-forages.fr">info@vaningen-forages.fr</a></p>
+</div>
+</div>
+</div>
+<div class="contact-map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2743.5!2d0.9834!3d46.7374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fcc5c0a2c1b5e9%3A0x0!2sBossay-sur-Claise!5e0!3m2!1sfr!2sfr!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<p>&copy; 2025 SAS Van Ingen Forages — Tous droits réservés</p>
+<p>Forage d'eau et géothermie depuis 1989 — Bossay-sur-Claise (37)</p>
+</div>
+</footer>
+
+</body>
+</html>
